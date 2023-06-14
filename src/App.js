@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import {useEffect} from 'react';
 import './App.css';
+import { Route,Routes } from 'react-router-dom';
+import Welcome from './Auth/Welcome';
+import SignUp from './Auth/SIgnUp';
+import LogIn from './Auth/LogIn';
+import { useDispatch } from 'react-redux';
+import { AuthAction } from './store/AuthSlice';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const dispatch = useDispatch();
+  useEffect(()=> {
+    const useremail = localStorage.getItem("usermail");
+    const idToken = localStorage.getItem("idToken");
+    dispatch(AuthAction.initialRander({useremail:useremail,idToken:idToken}));
+  },[dispatch])
+  return (<div className='Login-component'>
+    <Routes>
+      <Route path='/' element={<Welcome/>} />
+      <Route path='/signup' element={<SignUp/>} />
+      <Route path='/login' element={<LogIn />} />
+
+    </Routes>
+  </div>);
 }
 
 export default App;

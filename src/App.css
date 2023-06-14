@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.Login-component {
+  background: url(./Img/Image.jpg) no-repeat center center fixed;
+background-size:cover;
+height:40rem;
+width: auto;
+}
