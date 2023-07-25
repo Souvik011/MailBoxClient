@@ -62,7 +62,7 @@ const SignUp = () => {
               >
                Sign Up
               </Button></Form.Group>
-              <div style={{textAlign:"center",color:"blueviolet",marginTop:"10px"}}> Already Have an Account ?  <NavLink to="/login">Click here</NavLink> To LogIn</div>
+              <div style={{textAlign:"center",color:"blueviolet",marginTop:"1.5rem"}}> Already Have an Account ?  <NavLink to="/login">Click here</NavLink> To LogIn</div>
           </Form>
           </Col>
       </Row> 

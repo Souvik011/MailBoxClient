@@ -4,11 +4,14 @@ import { Route,Routes } from 'react-router-dom';
 import Welcome from './Auth/Welcome';
 import SignUp from './Auth/SIgnUp';
 import LogIn from './Auth/LogIn';
-import { useDispatch } from 'react-redux';
+import Compose from './Compose/Compose';
+import WelcomePage from './Auth/WelcomePage';
+import { useDispatch , useSelector} from 'react-redux';
 import { AuthAction } from './store/AuthSlice';
 
 function App() {
   const dispatch = useDispatch();
+  const islogin  = useSelector((state)=> state.auth.islogin);
   useEffect(()=> {
     const useremail = localStorage.getItem("usermail");
     const idToken = localStorage.getItem("idToken");
@@ -16,9 +19,11 @@ function App() {
   },[dispatch])
   return (<div className='Login-component'>
     <Routes>
-      <Route path='/' element={<Welcome/>} />
-      <Route path='/signup' element={<SignUp/>} />
-      <Route path='/login' element={<LogIn />} />
+      {islogin ? (<Route path='/' element={<WelcomePage/>} />) :(<Route path='/' element={<Welcome/>}/>) }
+      {islogin ? (<Route path='/signUp' element={<WelcomePage/>} />) :(<Route path='/signup' element={<SignUp/>} />) }
+      {islogin ? (<Route path='/login' element={<WelcomePage/>} />) :(<Route path='/login' element={<LogIn />} />) }
+      {islogin && <Route path='/compose' element={<Compose />}/>}
+      
 
     </Routes>
   </div>);
