@@ -5,6 +5,8 @@ import Welcome from './Auth/Welcome';
 import SignUp from './Auth/SIgnUp';
 import LogIn from './Auth/LogIn';
 import Compose from './Compose/Compose';
+import Inbox from './Inbox/Inbox';
+import InboxMsgView from './Inbox/InboxMsgView';
 import WelcomePage from './Auth/WelcomePage';
 import { useDispatch , useSelector} from 'react-redux';
 import { AuthAction } from './store/AuthSlice';
@@ -23,6 +25,9 @@ function App() {
       {islogin ? (<Route path='/signUp' element={<WelcomePage/>} />) :(<Route path='/signup' element={<SignUp/>} />) }
       {islogin ? (<Route path='/login' element={<WelcomePage/>} />) :(<Route path='/login' element={<LogIn />} />) }
       {islogin && <Route path='/compose' element={<Compose />}/>}
+      {islogin && <Route path='/inboxpage' element={<Inbox />}/>}
+      {islogin && (<Route path="/inboxpage/:messageId" element={<InboxMsgView/>} />)}
+      
       
 
     </Routes>

@@ -1,4 +1,4 @@
-import React,{useState,useRef} from 'react';
+import React,{useState,useRef,Fragment} from 'react';
 import { Editor } from "react-draft-wysiwyg";
 import { EditorState, convertToRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -6,6 +6,7 @@ import { Row, Col, Container, Card, Button , ListGroup  , Form } from "react-boo
 import {Link} from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { SendMailHandler } from '../store/SendMail-Thunk';
+import InboxNav from '../Inbox/InboxNav';
 
 const Compose = () => {
     const Dispatch = useDispatch();
@@ -32,15 +33,18 @@ const Compose = () => {
       const updateTextDescription = (editorState) => {
         setEditorState(editorState);
       };
-    return (<Container fluid>
+    return (
+    <Fragment>
+      <InboxNav />
+      <Container fluid>
         <Row>
-        <Col xs={2} className=" bg-info" variant="primary" style={{height:"100vh"}} >
+        <Col xs={2} className=" bg-info" variant="primary"  >
             <ListGroup className="p-2" as="ul">
-            <Link to="/compose"><ListGroup.Item className="m-1 bg-" action>
+            <ListGroup.Item className="m-1 bg-" style={{backgroundColor:"blue"}} action>
             <div style={{display:"flex",justifyContent:"space-around",maxHeight:"4vh"}}>
-                  <p>Compose Mail</p> 
+                  <p>Compose</p> 
                 </div>
-              </ListGroup.Item></Link>
+              </ListGroup.Item>
               <Link to="/inboxpage" ><ListGroup.Item className="m-1 bg-" action>
               <div style={{display:"flex",justifyContent:"space-around",maxHeight:"4vh"}}>
                   <p>Inbox</p> 
@@ -57,7 +61,7 @@ const Compose = () => {
           
           <Col xs={10}>
             <Form className="pt-7"  onSubmit={FormsubmitHandler}>
-              <Card style={{ width: "auto" ,height:"100vh" }} border="success">
+              <Card style={{ width: "auto"  }} border="success">
                 <Card.Body style={{backgroundColor:"rgba(243, 241, 247, 0.719)"}}>
                   <Form.Group controlId="email" style={{display:"table" , width:"auto"}}>
                     <Form.Label style={{float:"left",width:"auto"}}>To :</Form.Label>
@@ -99,7 +103,8 @@ const Compose = () => {
             </Form>
           </Col>
         </Row>
-      </Container>);
+      </Container>
+      </Fragment>);
 };
 
 export default Compose;

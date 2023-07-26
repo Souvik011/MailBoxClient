@@ -1,16 +1,19 @@
 import { Row, Col, Container, ListGroup  } from "react-bootstrap";
 import {Link} from "react-router-dom";
+import InboxNav from "../Inbox/InboxNav";
 
 
 const WelcomePage = () => {
   return (
+    <>
+    <InboxNav />
     <Container fluid>
       <Row>
         <Col
           xs={2}
           className=" bg-info"
           variant="primary"
-          style={{ height: "100vh" }}
+          style={{height:"80vh"}}
         >
           <ListGroup className="p-2" as="ul">
             <Link to="/compose">
@@ -55,11 +58,11 @@ const WelcomePage = () => {
           </ListGroup>
         </Col>
 
-        <Col xs={10}>
-            <div style={{backgroundColor:"yellowgreen",height:"100vh",width:"100%",display:"grid",alignItems:"center",justifyContent:"center"}}><h3 style={{color:"blueviolet"}}>Welcome TO MailBox Client</h3></div>
+        <Col xs={10} style={{height:"80vh",width:"83%",backgroundColor:"yellowgreen"}}>
+            <div style={{width:"100%",display:"grid",alignItems:"center",justifyContent:"center"}}><h3 style={{color:"blueviolet",marginTop:"10rem"}}>Welcome TO MailBox Client</h3></div>
         </Col>
       </Row>
-    </Container>
+    </Container></>
   );
 };
 

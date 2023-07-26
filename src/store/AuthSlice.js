@@ -14,12 +14,15 @@ const AuthSlice = createSlice({
     initialState: initialState,
     reducers: {
       signup(state,action) {
+          localStorage.setItem("signup" , true);
           state.signup = true ;
           localStorage.setItem("usermail",action.payload.email);
           state.email = action.payload.email;
+          state.data.push(action.payload);
          
         },
       login (state,action) {
+        localStorage.setItem("islogin" , true);
         state.islogin = true ; 
         localStorage.setItem("usermail",action.payload.email);
         localStorage.setItem("idToken" , action.payload.idToken);
@@ -34,6 +37,14 @@ const AuthSlice = createSlice({
           state.islogin = true ; 
         }
       },
+      logout(state) {
+        localStorage.setItem("islogin" , false);
+        state.islogin = false;
+        state.signup = false;
+        state.idToken = null;
+        localStorage.removeItem("idToken");
+        localStorage.removeItem("usermail");
+      }
 
     },
   });
