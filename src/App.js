@@ -12,6 +12,7 @@ import SendBoxMsgView from './SendBox/SendBoxMsgView';
 import WelcomePage from './Auth/WelcomePage';
 import { useDispatch , useSelector} from 'react-redux';
 import { AuthAction } from './store/AuthSlice';
+import ForgetPassword from './Auth/ForgetPassword';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,11 +27,12 @@ function App() {
       {islogin ? (<Route path='/' element={<WelcomePage/>} />) :(<Route path='/' element={<Welcome/>}/>) }
       {islogin ? (<Route path='/signUp' element={<WelcomePage/>} />) :(<Route path='/signup' element={<SignUp/>} />) }
       {islogin ? (<Route path='/login' element={<WelcomePage/>} />) :(<Route path='/login' element={<LogIn />} />) }
-      {islogin && <Route path='/compose' element={<Compose />}/>}
-      {islogin && <Route path='/inboxpage' element={<Inbox />}/>}
-      {islogin && (<Route path="/inboxpage/:messageId" element={<InboxMsgView/>} />)}
-      {islogin && <Route path='/sendbox' element={<SendBox />}/>}
-      {islogin && (<Route path="/sendbox/:messageId" element={<SendBoxMsgView/>} />)}
+      <Route path='/forget' element={<ForgetPassword />} />
+      {islogin ? (<Route path='/compose' element={<Compose />}/>) :(<Route path='/' element={<Welcome/>}/>)}
+      {islogin ? (<Route path='/inboxpage' element={<Inbox />}/>) :(<Route path='/' element={<Welcome/>}/>)}
+      {islogin ? (<Route path="/inboxpage/:messageId" element={<InboxMsgView/>} />) :(<Route path='/' element={<Welcome/>}/>)}
+      {islogin ? (<Route path='/sendbox' element={<SendBox />}/>) :(<Route path='/' element={<Welcome/>}/>)}
+      {islogin ? (<Route path="/sendbox/:messageId" element={<SendBoxMsgView/>} />) :(<Route path='/' element={<Welcome/>}/>)}
       
       
 

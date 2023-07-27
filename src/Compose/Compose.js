@@ -47,6 +47,7 @@ const Compose = () => {
         };
         console.log(mailData);
         Dispatch((SendMailHandler(mailData)));
+        alert(`Mail Send to ${Enteredemail.current.value}`);
     
       };
 
@@ -100,7 +101,7 @@ const Compose = () => {
                       ref={Enteredsubject}
                     ></Form.Control>
                   </Form.Group>
-                  <Form.Group controlId="message" style={{marginTop:"2rem",height:"20rem",backgroundColor:"white"}}>
+                  <Form.Group controlId="message" style={{marginTop:"2rem",height:"16rem",backgroundColor:"white"}}>
                     <Form.Label>Message</Form.Label>
                     <Editor style={{marginLeft:"1rem"} } 
                     type = "textarea"

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row,Col,Container,Card,Button,Image } from 'react-bootstrap';
 import Img from '../Img/Welcome.jpg';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 const Welcome = () => {
     const Navigate = useNavigate();
@@ -12,6 +12,11 @@ const Welcome = () => {
     const SignUpTrigerHandler = () => {
         Navigate("/signup")
     };
+
+    const ForgetPasswordTrigerHandler = () => {
+        Navigate("/forget")
+    };
+
     return (<Container fluid="true">
         <Row className='justify-content-center'>
             <Col xs={14} md={6} >
@@ -22,6 +27,7 @@ const Welcome = () => {
                 <Button variant="primary" onClick={LoginTrigerHandler} style={{marginTop:"12px",marginRight:"2rem"}}>Click Here To LogIn</Button>
                 <Button variant="primary" onClick={SignUpTrigerHandler} style={{marginTop:"12px"}}>Click Here To Sign Up</Button>
             </Card.Body>
+            <Button variant='outline-danger' style={{height:"2rem",width:"10rem",marginLeft:"37%",marginBottom:"1rem"}} onClick={ForgetPasswordTrigerHandler} >Forget Password</Button>
             </Card>
             </Col>
         </Row>

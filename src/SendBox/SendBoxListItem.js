@@ -39,7 +39,7 @@ const SendBoxListItem = props => {
                 onClick={ListItemHandler}
               >
                 <Link to="sendboxmailview">
-                  <h6>{props.sendermail}{" "}</h6>
+                  <h6>{props.email}{" "}</h6>
                   <div
                     style={{
                       fontStyle: "oblique",

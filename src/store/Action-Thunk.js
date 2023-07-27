@@ -60,3 +60,35 @@ const signupUrl = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key
       } catch (error) {alert(error.message)}
     };
   };
+
+  const forgotPassUrl = "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyBKhYLI8muDF7nwER_abab3OcVOKw9zQa0"
+
+  export const SendForgotPassward  = (email) => {
+    return (Dispatch) => {
+      const ForgotPass = async (email) => {
+        try{
+          const response = await fetch (forgotPassUrl,{
+            method: "POST",
+            body: JSON.stringify({
+              email: email,
+              requestType: "PASSWORD_RESET",
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+
+          const data = await response.json();
+          if (data.error) {
+            alert(data.error.message);
+            throw new Error(data.error.message);
+          }
+    
+        }
+        catch(error){  console.log(error);
+
+        }
+      };
+      ForgotPass(email);
+    };
+  };

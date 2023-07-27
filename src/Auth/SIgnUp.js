@@ -27,7 +27,7 @@ const SignUp = () => {
      <Row className='justify-content-center'>
           <Col xs={12} md={6}> 
           <Form onSubmit={SignUpSubmitHandler} style={{marginLeft:"auto",marginRight:"auto",marginTop:"5rem",backgroundColor:"White",padding:" 10px"}}>
-          <h3 style={{textAlign:"center",fontSize:"30px",fontFamily:"revert-layer",fontStyle:"bold italic",Color:"black",marginTop:"5px",marginBottom:"20px"}}>Sign Up</h3>
+          <h3 style={{textAlign:"center",fontSize:"30px",fontFamily:"cursive",fontWeight:"bold",fontStyle:"bold italic",Color:"black",marginTop:"5px",marginBottom:"20px"}}>Sign Up</h3>
             <Form.Group controlId='email' style={{marginTop:"10px"}}>
             <Form.Label style={{fontFamily:"fantasy",fontWeight:"bold"}}>EMAIL :</Form.Label>
               <Form.Control
