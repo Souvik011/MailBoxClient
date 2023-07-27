@@ -34,6 +34,17 @@ const Inbox = props => {
     useEffect(()=> {
         Dispatch(getInboxMailList());
     },[mail]);
+    useEffect(() => {
+      const intervelid = setInterval(() => {
+        console.log("setintervelid", intervelid);
+        Dispatch(getInboxMailList());
+    }, 2000);
+  
+      return () => {
+        console.log("clearintervalid", intervelid);
+        clearInterval(intervelid);
+      };
+    });
 
     return ( <>
     <InboxNav />

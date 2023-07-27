@@ -30,8 +30,20 @@ const SendBox = props => {
       return inboxCount;
     });
     useEffect(()=>{
-        Dispatch(getSendBoxMailList());
+      Dispatch(getSendBoxMailList());
     },[mail]);
+    useEffect(() => {
+      const intervelid = setInterval(() => {
+        console.log("setintervelid", intervelid);
+        Dispatch(getSendBoxMailList());
+    }, 2000);
+  
+      return () => {
+        console.log("clearintervalid", intervelid);
+        clearInterval(intervelid);
+      };
+    });
+    
 
     return ( <>
         <InboxNav />
