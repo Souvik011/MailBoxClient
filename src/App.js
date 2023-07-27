@@ -7,6 +7,8 @@ import LogIn from './Auth/LogIn';
 import Compose from './Compose/Compose';
 import Inbox from './Inbox/Inbox';
 import InboxMsgView from './Inbox/InboxMsgView';
+import SendBox from './SendBox/SendBox';
+import SendBoxMsgView from './SendBox/SendBoxMsgView';
 import WelcomePage from './Auth/WelcomePage';
 import { useDispatch , useSelector} from 'react-redux';
 import { AuthAction } from './store/AuthSlice';
@@ -27,6 +29,8 @@ function App() {
       {islogin && <Route path='/compose' element={<Compose />}/>}
       {islogin && <Route path='/inboxpage' element={<Inbox />}/>}
       {islogin && (<Route path="/inboxpage/:messageId" element={<InboxMsgView/>} />)}
+      {islogin && <Route path='/sendbox' element={<SendBox />}/>}
+      {islogin && (<Route path="/sendbox/:messageId" element={<SendBoxMsgView/>} />)}
       
       
 

@@ -11,7 +11,9 @@ import InboxNav from "./InboxNav";
 const Inbox = props => {
     const Dispatch = useDispatch();
     const Items = useSelector((state) => state.send.items);
+    const sendLength = Items.length;
     const InboxItem = useSelector((state) => state.receive.receivedItem);
+    const inboxLength = InboxItem.length;
     const mail = localStorage.getItem("usermail");
     let Unreadmessage = 0;
     Items.map((item) => {
@@ -45,13 +47,13 @@ const Inbox = props => {
                 </div>
               </ListGroup.Item></Link>
               <ListGroup.Item className="m-1 bg-" style={{backgroundColor:"blue"}} action>
-              <div style={{display:"flex",justifyContent:"space-around",maxHeight:"4vh"}}>
-                  <p>Inbox</p> 
+              <div style={{display:"flex",justifyContent:"center",maxHeight:"4vh"}}>
+                  <p>Inbox</p> <p style={{marginLeft:"8px",fontSize:"small",fontWeight:"bold",color:"yellowgreen",marginTop:"3px"}}>{`(${inboxCount} / ${inboxLength})` }</p>
                 </div>
               </ListGroup.Item>
               <Link to="/sendbox" ><ListGroup.Item className="m-1" action>
-              <div style={{display:"flex",justifyContent:"space-around",maxHeight:"4vh"}}>
-                  <p>SendBox</p> 
+              <div style={{display:"flex",justifyContent:"center",maxHeight:"4vh"}}>
+                  <p>SendBox</p> <p style={{marginLeft:"8px",fontSize:"small",fontWeight:"bold",color:"yellowgreen",marginTop:"3px"}}>{`(${Unreadmessage} / ${sendLength})` }</p>
                 </div>
               </ListGroup.Item></Link>
               

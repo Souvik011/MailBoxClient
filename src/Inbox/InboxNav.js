@@ -22,7 +22,7 @@ const InboxNav = () => {
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/1200px-Gmail_icon_%282020%29.svg.png"
       ></img>
       <div style={{ width: "600px",fontFamily:"monospace" , fontWeight:"bold" , color:"InfoBackground",textAlign:"center",fontSize:"3rem" }}>MailBox Client</div>
-      <Button variant="danger" onClick={LogOutHandler}  style={{float:"right"}}> Log Out</Button>
+      <Button variant="danger" onClick={LogOutHandler}  style={{float:"right",height:"2rem",textAlign:"center",marginTop:"1.5rem"}}> Log Out</Button>
     </Container>
   </Navbar>);
 };

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialinboxState = { Triggerval: 0, receivedItem: [], messageView: {}, reply:localStorage.getItem("mailid"),replymode:false };
+const initialinboxState = { Triggerval: 0, receivedItem: [], messageView: {} };
 
 const InboxMailSlice = createSlice({
     name:"receivedmail",
@@ -12,6 +12,8 @@ const InboxMailSlice = createSlice({
         addMessageViewinfo(state, action) {
           state.messageView = action.payload;
         },
+    
+        
     },
 });
 

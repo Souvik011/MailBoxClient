@@ -2,21 +2,23 @@ import React from "react";
 import { Col, Container, ListGroup, Row, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import "./Inbox.css";
-import { InboxMsgViewInfo,UpdateInboxList,DeleteInboxMail } from "../store/SendMail-Thunk";
+import '../Inbox/Inbox.css';
+import { SendboxMsgViewInfo,UpdateSendboxList,DeleteSendboxMail } from "../store/SendMail-Thunk";
 
-const InboxListItem = (props) => {
-  const Dispatch = useDispatch();
+
+
+const SendBoxListItem = props => {
+    const Dispatch = useDispatch();
   console.log("deatails/", props);
   const ListItemHandler = () => {
-    Dispatch(InboxMsgViewInfo(props.id));
+    Dispatch(SendboxMsgViewInfo(props.id));
     if (!props.readreceipt) {
-      Dispatch(UpdateInboxList(props))
+      Dispatch(UpdateSendboxList(props))
       return;
     }
   };
   const deleteHandler = () => {
-    Dispatch(DeleteInboxMail(props.id));
+    Dispatch(DeleteSendboxMail(props.id));
     console.log("sendmeeage page");
   };
   return (
@@ -36,8 +38,8 @@ const InboxListItem = (props) => {
                 
                 onClick={ListItemHandler}
               >
-                <Link to="inboxmailview">
-                  <h6>{props.email}{" "}</h6>
+                <Link to="sendboxmailview">
+                  <h6>{props.sendermail}{" "}</h6>
                   <div
                     style={{
                       fontStyle: "oblique",
@@ -64,4 +66,4 @@ const InboxListItem = (props) => {
   );
 };
 
-export default InboxListItem;
+export default SendBoxListItem;

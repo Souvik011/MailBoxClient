@@ -2,12 +2,11 @@ import React from "react";
 import { Button, Card,Container,Row,Col,ListGroup } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate,Link } from "react-router-dom";
-import InboxNav from "./InboxNav";
+import InboxNav from "../Inbox/InboxNav";
 
-
-const InboxMsgView = (props) => {
+const SendBoxMsgView = props => {
     const navigate = useNavigate();
-    const messageView = useSelector((state) => state.receive.messageView);
+    const messageView = useSelector((state) => state.send.messageView);
     console.log(messageView, " mymailmessageView");
     const replybuttonHandler = () => {
       navigate("/compose");
@@ -24,12 +23,12 @@ const InboxMsgView = (props) => {
                       <p>Compose</p> 
                     </div>
                   </ListGroup.Item></Link>
-                  <Link to="/inboxpage" ><ListGroup.Item className="m-1 bg-" style={{backgroundColor:"blue"}} action>
+                  <Link to="/inboxpage" ><ListGroup.Item className="m-1 bg-" action>
                   <div style={{display:"flex",justifyContent:"space-around",maxHeight:"4vh"}}>
                       <p>Inbox</p> 
                     </div>
                   </ListGroup.Item></Link>
-                  <Link to="/sendbox" ><ListGroup.Item className="m-1" action>
+                  <Link to="/sendbox" ><ListGroup.Item className="m-1" style={{backgroundColor:"blue"}} action>
                   <div style={{display:"flex",justifyContent:"space-around",maxHeight:"4vh"}}>
                       <p>SendBox</p> 
                     </div>
@@ -57,4 +56,4 @@ const InboxMsgView = (props) => {
     );
 };
 
-export default InboxMsgView;
+export default SendBoxMsgView;

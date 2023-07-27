@@ -1,17 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialSendMailState = {
-    sendMail: false, getMail: false, items: [],count: 0,messageView: {}
+    items: [],count: 0,messageView: {}
 };
 
 const sendMailSlice = createSlice({
     name:"sendmail",
     initialState:initialSendMailState,
     reducers:{
-        setSentData(state, action) {
-            state.sendMail = !state.sendMail;
-            state.count = state.count+1;
-      
+        addSendItem(state,action) {
+            state.items = action.payload;
+        },
+        addMessageViewinfo(state, action) {
+            state.messageView = action.payload;
           },
     },
 }); 
